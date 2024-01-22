@@ -99,8 +99,8 @@ namespace WinNodeEditorDemo.Player
         {
             return new Dictionary<string, object>() 
             {
-                {"Male" , _maleOption.Owner.GetBuildObject() },
-                {"Female" , _femaleOption.Owner.GetBuildObject() },
+                {"Male" , _maleOption?.Owner?.GetBuildObject() },
+                {"Female" , _femaleOption?.Owner?.GetBuildObject() },
             };
         }
     }

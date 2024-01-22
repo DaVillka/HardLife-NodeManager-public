@@ -5,6 +5,8 @@ using WinNodeEditorDemo.Core.Extensions;
 using System.Linq;
 using WinNodeEditorDemo.Clothes;
 using Newtonsoft.Json;
+using System.IO;
+using System.Reflection;
 
 namespace WinNodeEditorDemo.Instances
 {
@@ -32,6 +34,20 @@ namespace WinNodeEditorDemo.Instances
                 resultList.Add(clothNode.GetBuildObject());
 
             string json = JsonConvert.SerializeObject(resultList);
+
+            try
+            {
+                string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "ClothBuild", "clothes.json");
+                if (!Directory.Exists(Path.GetDirectoryName(path))) Directory.CreateDirectory(Path.GetDirectoryName(path));
+                
+                File.WriteAllText(path, json);
+                
+                Console.WriteLine($"Одежда скомпилирована в файл {path}.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Произошла ошибка: {ex.Message}");
+            }
         }
         
 

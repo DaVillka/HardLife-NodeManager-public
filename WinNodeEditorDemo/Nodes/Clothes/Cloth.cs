@@ -163,7 +163,7 @@ namespace WinNodeEditorDemo.Clothes
             {
                 { "GUID", Guid },
                 { "Name", Name },
-                { "Description", strDescription.Data as string },
+                { "Description", Description },
                 //{ "Icon", _icon.Data as Image },
                 { "Barefoot", GetData(_barefootIN) },
                 { "Socks", GetData(_socksIN) },
