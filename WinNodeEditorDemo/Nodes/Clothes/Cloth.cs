@@ -1,6 +1,7 @@
 ﻿using ST.Library.UI.NodeEditor;
 using System.Collections.Generic;
 using System.Drawing;
+using WinNodeEditorDemo.Core;
 using WinNodeEditorDemo.NodeControls;
 using WinNodeEditorDemo.Nodes.Clothes.Components;
 
@@ -11,9 +12,13 @@ namespace WinNodeEditorDemo.Clothes
     {
         public string Name {  get; private set; }
         public string Description {  get; private set; }
+        public Sex Sex { get; private set; }
+
         private STNodeOption strName = null;
         private STNodeOption strDescription = null;
         private STNodeOption _icon = null;
+        private STNodeOption _sexIN = null;
+        private STNodeOption _sexOUT = null;
 
 
         private STNodeOption   _barefootIN = null;
@@ -38,7 +43,7 @@ namespace WinNodeEditorDemo.Clothes
         private STNodeOption       _topOUT = null;
         private STNodeOption    _glovesOUT = null;
 
-
+        private STNode _sexNode = null;
         protected override void OnCreate()
         {
             base.OnCreate();
@@ -47,9 +52,12 @@ namespace WinNodeEditorDemo.Clothes
             Width = 160;
             Height = 320 + 80;
             LetGetOptions = true;
+
             strName = InputOptions.Add("Имя", typeof(string), true);
             strDescription = InputOptions.Add("Описание", typeof(string), true);
             _icon = InputOptions.Add("Иконка", typeof(Image), true);
+            _sexIN = InputOptions.Add("Пол", typeof(Sex), true);
+            
             
             strName.DataTransfer += (s, e) => { Name = e.TargetOption.Data as string; };
             strName.Connected += (s, e) => { Name = e.TargetOption.Data as string; };
@@ -59,24 +67,34 @@ namespace WinNodeEditorDemo.Clothes
             strDescription.Connected += (s, e) => { Description = e.TargetOption.Data as string; };
             strDescription.DisConnected += (s, e) => { Description = null; };
 
-            _ = InputOptions.Add(STNodeOption.Empty);
-            _ = OutputOptions.Add(STNodeOption.Empty);
-            _ = OutputOptions.Add(STNodeOption.Empty);
-            _ = OutputOptions.Add(STNodeOption.Empty);
-            _ = OutputOptions.Add(STNodeOption.Empty);
+            _sexIN.DataTransfer += (s, e) => { Sex = (Sex)e.TargetOption.Data; };
+            _sexIN.Connected += (s, e) => { Sex = (Sex)e.TargetOption.Data; _sexOUT.DisConnectionAll(); _sexNode = e.TargetOption.Owner; };
+            _sexIN.DisConnected += (s, e) => { Sex = Sex.NONE; _sexNode = null; };
+            
+
+            InputOptions.Add(STNodeOption.Empty);
+            OutputOptions.Add(STNodeOption.Empty);
+            OutputOptions.Add(STNodeOption.Empty);
+            OutputOptions.Add(STNodeOption.Empty);
+            _sexOUT = OutputOptions.Add("Пол", typeof(Sex), true);
+            OutputOptions.Add(STNodeOption.Empty);
+
+            _sexOUT.DataTransfer += (s, e) => { Sex = (Sex)e.TargetOption.Data; };
+            _sexOUT.Connected += (s, e) => { Sex = (Sex)e.TargetOption.Data; _sexIN.DisConnectionAll(); _sexNode = e.TargetOption.Owner; };
+            _sexOUT.DisConnected += (s, e) => { Sex = Sex.NONE; _sexNode = null; };
 
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(0, 60),
-                Size = new System.Drawing.Size(Width, 20),
+                Location = new Point(0, 60 + 20),
+                Size = new Size(Width, 20),
                 BackColor = Color.Transparent,
                 Alignment = StringAlignment.Center,
                 Text = "---- Ниже пояса ----"
             });
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(180 / 2, 80),
-                Size = new System.Drawing.Size(60, 20),
+                Location = new Point(180 / 2, 80 + 20),
+                Size = new Size(60, 20),
                 BackColor = Color.Black,
                 ForeColor = Color.White,
                 Alignment = StringAlignment.Center,
@@ -85,8 +103,8 @@ namespace WinNodeEditorDemo.Clothes
             });
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(180 / 2, 80 + 60),
-                Size = new System.Drawing.Size(60, 20),
+                Location = new Point(180 / 2, 80 + 60 + 20),
+                Size = new Size(60, 20),
                 BackColor = Color.Black,
                 ForeColor = Color.White,
                 Alignment = StringAlignment.Center,
@@ -95,14 +113,14 @@ namespace WinNodeEditorDemo.Clothes
             });
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(0, 140),
-                Size = new System.Drawing.Size(160, 1),
+                Location = new Point(0, 140 + 20),
+                Size = new Size(160, 1),
                 BackColor = Color.White,
                 Alignment = StringAlignment.Center,
                 Text = "",
             });
 
-            _barefootIN = InputOptions.Add("Босый", typeof(Shoes), true);
+            _barefootIN = InputOptions.Add("Босой", typeof(Shoes), true);
             _socksIN = InputOptions.Add("Носки", typeof(Shoes), true);
             _shoesIN = InputOptions.Add("Обувь", typeof(Shoes), true);
 
@@ -110,7 +128,7 @@ namespace WinNodeEditorDemo.Clothes
             _underwearIN = InputOptions.Add("Белье", typeof(Legs), true);
             _feetIN = InputOptions.Add("Штаны", typeof(Legs), true);
 
-            _barefootOUT = OutputOptions.Add("Босый", typeof(Shoes), false);
+            _barefootOUT = OutputOptions.Add("Босой", typeof(Shoes), false);
             _socksOUT = OutputOptions.Add("Носки", typeof(Shoes), false);
             _shoesOUT = OutputOptions.Add("Обувь", typeof(Shoes), false);
 
@@ -120,16 +138,16 @@ namespace WinNodeEditorDemo.Clothes
 
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(0, 60 + 140),
-                Size = new System.Drawing.Size(Width, 20),
+                Location = new Point(0, 60 + 140 + 20),
+                Size = new Size(Width, 20),
                 BackColor = Color.Transparent,
                 Alignment = StringAlignment.Center,
                 Text = "---- Выше пояса ----",
             });
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(180 / 2, 80 + 60 + 80),
-                Size = new System.Drawing.Size(80, 20),
+                Location = new Point(180 / 2, 80 + 60 + 80 + 20),
+                Size = new Size(80, 20),
                 BackColor = Color.Black,
                 ForeColor = Color.White,
                 Alignment = StringAlignment.Center,
@@ -138,37 +156,40 @@ namespace WinNodeEditorDemo.Clothes
             });
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new System.Drawing.Point(0, 140 + 160),
-                Size = new System.Drawing.Size(160, 1),
+                Location = new Point(0, 140 + 160 + 20),
+                Size = new Size(160, 1),
                 BackColor = Color.White,
                 Alignment = StringAlignment.Center,
                 Text = "",
             });
             _ = InputOptions.Add(STNodeOption.Empty);
             _tnakedIN = InputOptions.Add("Торс", typeof(Torso), true);
+            _glovesIN = InputOptions.Add("Перчи", typeof(Torso), true);
             _undersirtIN = InputOptions.Add("Майка", typeof(Tops), true);
             _topIN = InputOptions.Add("Топ", typeof(Tops), true);
-            _glovesIN = InputOptions.Add("Перчи", typeof(Torso), true);
+            
             _tnakedIN.Connected += (s, e) => { };
             _ = OutputOptions.Add(STNodeOption.Empty);
 
             _tnakedOUT = OutputOptions.Add("Торс", typeof(Torso), false);
+            _glovesOUT = OutputOptions.Add("Перчи", typeof(Torso), false);
             _undersirtOUT = OutputOptions.Add("Майка", typeof(Tops), false);
             _topOUT = OutputOptions.Add("Топ", typeof(Tops), false);
-            _glovesOUT = OutputOptions.Add("Перчи", typeof(Torso), false);
+            
         }
         public override object GetBuildObject()
         {
             var clothData = new Dictionary<string, dynamic>
             {
-                { "GUID", Guid },
+                { "GUID", _sexNode == null ? Guid : _sexNode.Guid },
                 { "Name", Name },
                 { "Description", Description },
+                { "Sex", Sex.ToString() },
                 //{ "Icon", _icon.Data as Image },
-                { "Barefoot", GetData(_barefootIN) },
+                { "WithoutShoes", GetData(_barefootIN) },
                 { "Socks", GetData(_socksIN) },
                 { "Shoes", GetData(_shoesIN) },
-                { "Naked", GetData(_nakedIN) },
+                { "WithoutPants", GetData(_nakedIN) },
                 { "Underwear", GetData(_underwearIN) },
                 { "Feet", GetData(_feetIN) },
                 { "Torso", GetData(_tnakedIN) },

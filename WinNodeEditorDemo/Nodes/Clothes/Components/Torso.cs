@@ -14,7 +14,7 @@ namespace WinNodeEditorDemo.Nodes.Clothes.Components
         public int[] Gloves => _gloveIds.ToArray();
 
         private STNodeOption _id = null;
-        private STNodeOption _gloves = null;
+        //private STNodeOption _gloves = null;
         private STNodeOption _out = null;
 
         private List<int> _gloveIds = new();
@@ -24,17 +24,17 @@ namespace WinNodeEditorDemo.Nodes.Clothes.Components
             Title = GetType().Name;
             AutoSize = false;
             Width = 120;
-            Height = 60;
+            Height = 40;
 
             _id = InputOptions.Add("Id", typeof(int), true);
-            _gloves = InputOptions.Add("Перчи", typeof(List<int>), true);
+            //_gloves = InputOptions.Add("Перчи", typeof(List<int>), true);
             _out = OutputOptions.Add("Выход", GetType(), false);
             _out.TransferData(this);
 
             _id.DataTransfer += (s, e) => { Id = (int)e.TargetOption.Data; Invalidate(); };
 
-            _gloves.DataTransfer += (s, e) => { _gloveIds = (List<int>)e.TargetOption.Data; };
-            _gloves.DisConnected += (s, e) => _gloveIds.Clear();
+            //_gloves.DataTransfer += (s, e) => { _gloveIds = (List<int>)e.TargetOption.Data; };
+            //_gloves.DisConnected += (s, e) => _gloveIds.Clear();
         }
         protected override void OnDrawOptionText(DrawingTools dt, STNodeOption op)
         {
@@ -46,7 +46,7 @@ namespace WinNodeEditorDemo.Nodes.Clothes.Components
             return new Dictionary<string, object>()
             {
                 { "Id", Id },
-                { "Gloves", Gloves },
+                //{ "Gloves", Gloves },
             };
         }
     }

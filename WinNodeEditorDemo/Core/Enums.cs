@@ -1,4 +1,6 @@
-﻿namespace WinNodeEditorDemo.Core
+﻿using System;
+
+namespace WinNodeEditorDemo.Core
 {
     public enum PedHash : uint
     {
@@ -741,11 +743,12 @@
         Yoga01AFY = 3290105390u,
         Yoga01AMY = 2869588309u
     }
+    [Flags]
     public enum Sex
     {
-        Male = 0,
-        Female = 1,
-        Unisex = 2,
+        NONE = 1 << 0,
+        MALE = 1 << 1,
+        FEMALE = 1 << 2,
     }
     public enum TextureInputType
     {

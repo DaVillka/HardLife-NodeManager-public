@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using WinNodeEditorDemo.Core;
 using WinNodeEditorDemo.Core.Extensions;
 using WinNodeEditorDemo.Interfaces;
 
@@ -37,6 +38,7 @@ namespace WinNodeEditorDemo.Instances
             { typeof(List<int>), Color.FromArgb(150,Color.Teal) },
             { typeof(List<string>), Color.FromArgb(150,Color.Green) },
             { typeof(List<float>), Color.FromArgb(150,Color.Aqua) },
+            { typeof(Sex), Color.FromArgb(150,Color.DeepPink) },
         };
         public TabEditorInstance(Form form, TabControl tabControl, STNodePropertyGrid sTNodePropertyGrid, ContextMenuStrip contextMenuStrip, ContextMenuStrip tabEditors)
         {
