@@ -880,13 +880,49 @@ namespace ST.Library.UI.NodeEditor
             Invalidate();
             return true;
         }
+		public void ExpandAll()
+		{
+			if (m_items_draw == null) return;
+			SetOpenStateRecursive(m_items_draw, true);
 
-        #endregion
-        //=================================================================================================
-        /// <summary>
-        /// STNodeTreeView控件中每一项的集合
-        /// </summary>
-        protected class STNodeTreeCollection : IEnumerable
+			// Сброс прокрутки к началу
+			if (string.IsNullOrEmpty(m_str_search))
+				m_nSourceOffsetY = 0;
+			else
+				m_nSearchOffsetY = 0;
+
+			Invalidate();
+		}
+
+		// (опционально) Свернуть все
+		public void CollapseAll()
+		{
+			if (m_items_draw == null) return;
+			SetOpenStateRecursive(m_items_draw, false);
+
+			if (string.IsNullOrEmpty(m_str_search))
+				m_nSourceOffsetY = 0;
+			else
+				m_nSearchOffsetY = 0;
+
+			Invalidate();
+		}
+
+		// Рекурсивная установка состояния IsOpen
+		private void SetOpenStateRecursive(STNodeTreeCollection items, bool open)
+		{
+			foreach (STNodeTreeCollection v in items)
+			{
+				v.IsOpen = open;
+				SetOpenStateRecursive(v, open);
+			}
+		}
+		#endregion
+		//=================================================================================================
+		/// <summary>
+		/// STNodeTreeView控件中每一项的集合
+		/// </summary>
+		protected class STNodeTreeCollection : IEnumerable
         {
             /// <summary>
             /// 获取当前树节点显示名称

@@ -183,8 +183,9 @@ namespace WinNodeEditorDemo
                 TabEditorInstance.Instance.LoadAndAdd(saveFileDialog.FileName);
             }
         }
-    }
-    public class ControlWriter : TextWriter
+
+	}
+	public class ControlWriter : TextWriter
     {
         private readonly TextBox _output;
 

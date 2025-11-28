@@ -12,7 +12,7 @@ namespace WinNodeEditorDemo.Clothes
     internal class SexNode : STNode
     {
         private STNodeOption _inMale = null;
-        private STNodeOption _inFemale = null;
+        private STNodeOption _outFemale = null;
         protected override void OnCreate()
         {
             base.OnCreate();
@@ -22,9 +22,9 @@ namespace WinNodeEditorDemo.Clothes
             Height = 40;
 
             _inMale = InputOptions.Add("Мужской", typeof(Sex), true);
-            _inFemale = OutputOptions.Add("Женский", typeof(Sex), true);
+            _outFemale = OutputOptions.Add("Женский", typeof(Sex), true);
             _inMale.TransferData(Sex.MALE);
-            _inFemale.TransferData(Sex.FEMALE);
+            _outFemale.TransferData(Sex.FEMALE);
 
             //_inMale.Connected += (s, e) => { Description = e.TargetOption.Data as string; };
         }

@@ -12,7 +12,8 @@ namespace WinNodeEditorDemo.Clothes
     {
         public string Name {  get; private set; }
         public string Description {  get; private set; }
-        public Sex Sex { get; private set; }
+        [STNodeProperty("Пол", "Пол игрока")]
+		public Sex Sex { get; private set; }
 
         private STNodeOption strName = null;
         private STNodeOption strDescription = null;
@@ -27,7 +28,7 @@ namespace WinNodeEditorDemo.Clothes
         private STNodeOption      _nakedIN = null;
         private STNodeOption  _underwearIN = null;
         private STNodeOption       _feetIN = null;
-        private STNodeOption     _tnakedIN = null;
+        //private STNodeOption     _tnakedIN = null;
         private STNodeOption  _undersirtIN = null;
         private STNodeOption        _topIN = null;
         private STNodeOption     _glovesIN = null;
@@ -38,7 +39,7 @@ namespace WinNodeEditorDemo.Clothes
         private STNodeOption     _nakedOUT = null;
         private STNodeOption _underwearOUT = null;
         private STNodeOption      _feetOUT = null;
-        private STNodeOption    _tnakedOUT = null;
+        //private STNodeOption    _tnakedOUT = null;
         private STNodeOption _undersirtOUT = null;
         private STNodeOption       _topOUT = null;
         private STNodeOption    _glovesOUT = null;
@@ -67,8 +68,8 @@ namespace WinNodeEditorDemo.Clothes
             strDescription.Connected += (s, e) => { Description = e.TargetOption.Data as string; };
             strDescription.DisConnected += (s, e) => { Description = null; };
 
-            _sexIN.DataTransfer += (s, e) => { Sex = (Sex)e.TargetOption.Data; };
-            _sexIN.Connected += (s, e) => { Sex = (Sex)e.TargetOption.Data; _sexOUT.DisConnectionAll(); _sexNode = e.TargetOption.Owner; };
+            _sexIN.DataTransfer += (s, e) => { Sex = e.TargetOption.Data is not null ? (Sex)e.TargetOption.Data : Sex.NONE; };
+            _sexIN.Connected += (s, e) => { Sex = (Sex)e.TargetOption.Data;  _sexNode = e.TargetOption.Owner; };
             _sexIN.DisConnected += (s, e) => { Sex = Sex.NONE; _sexNode = null; };
             
 
@@ -80,7 +81,7 @@ namespace WinNodeEditorDemo.Clothes
             OutputOptions.Add(STNodeOption.Empty);
 
             _sexOUT.DataTransfer += (s, e) => { Sex = (Sex)e.TargetOption.Data; };
-            _sexOUT.Connected += (s, e) => { Sex = (Sex)e.TargetOption.Data; _sexIN.DisConnectionAll(); _sexNode = e.TargetOption.Owner; };
+            _sexOUT.Connected += (s, e) => { Sex = (Sex)e.TargetOption.Data; _sexNode = e.TargetOption.Owner; };
             _sexOUT.DisConnected += (s, e) => { Sex = Sex.NONE; _sexNode = null; };
 
             _ = Controls.Add(new STNodeLabel()
@@ -120,22 +121,25 @@ namespace WinNodeEditorDemo.Clothes
                 Text = "",
             });
 
-            _barefootIN = InputOptions.Add("Босой", typeof(Shoes), true);
+            //_barefootIN = InputOptions.Add("Босой", typeof(Shoes), true);
             _socksIN = InputOptions.Add("Носки", typeof(Shoes), true);
             _shoesIN = InputOptions.Add("Обувь", typeof(Shoes), true);
+            InputOptions.Add(STNodeOption.Empty);
 
-            _nakedIN = InputOptions.Add("Голые", typeof(Legs), true);
+            //_nakedIN = InputOptions.Add("Голые", typeof(Legs), true);
             _underwearIN = InputOptions.Add("Белье", typeof(Legs), true);
             _feetIN = InputOptions.Add("Штаны", typeof(Legs), true);
-
-            _barefootOUT = OutputOptions.Add("Босой", typeof(Shoes), false);
+            InputOptions.Add(STNodeOption.Empty);
+            
+            //_barefootOUT = OutputOptions.Add("Босой", typeof(Shoes), false);
             _socksOUT = OutputOptions.Add("Носки", typeof(Shoes), false);
             _shoesOUT = OutputOptions.Add("Обувь", typeof(Shoes), false);
-
-            _nakedOUT = OutputOptions.Add("Голые", typeof(Legs), false);
+            
+            OutputOptions.Add(STNodeOption.Empty);
+            //_nakedOUT = OutputOptions.Add("Голые", typeof(Legs), false);
             _underwearOUT = OutputOptions.Add("Белье", typeof(Legs), false);
             _feetOUT = OutputOptions.Add("Штаны", typeof(Legs), false);
-
+            OutputOptions.Add(STNodeOption.Empty);
             _ = Controls.Add(new STNodeLabel()
             {
                 Location = new Point(0, 60 + 140 + 20),
@@ -147,7 +151,7 @@ namespace WinNodeEditorDemo.Clothes
             _ = Controls.Add(new STNodeLabel()
             {
                 Location = new Point(180 / 2, 80 + 60 + 80 + 20),
-                Size = new Size(80, 20),
+                Size = new Size(60, 20),
                 BackColor = Color.Black,
                 ForeColor = Color.White,
                 Alignment = StringAlignment.Center,
@@ -156,23 +160,23 @@ namespace WinNodeEditorDemo.Clothes
             });
             _ = Controls.Add(new STNodeLabel()
             {
-                Location = new Point(0, 140 + 160 + 20),
+                Location = new Point(0, 140 + 160),
                 Size = new Size(160, 1),
                 BackColor = Color.White,
                 Alignment = StringAlignment.Center,
                 Text = "",
             });
             _ = InputOptions.Add(STNodeOption.Empty);
-            _tnakedIN = InputOptions.Add("Торс", typeof(Torso), true);
-            _glovesIN = InputOptions.Add("Перчи", typeof(Torso), true);
+            _ = OutputOptions.Add(STNodeOption.Empty);
+            //_tnakedIN = InputOptions.Add("Торс", typeof(Torso), true);
+            //_glovesIN = InputOptions.Add("Перчи", typeof(Torso), true);
             _undersirtIN = InputOptions.Add("Майка", typeof(Tops), true);
             _topIN = InputOptions.Add("Топ", typeof(Tops), true);
             
-            _tnakedIN.Connected += (s, e) => { };
-            _ = OutputOptions.Add(STNodeOption.Empty);
+            //_tnakedIN.Connected += (s, e) => { };
 
-            _tnakedOUT = OutputOptions.Add("Торс", typeof(Torso), false);
-            _glovesOUT = OutputOptions.Add("Перчи", typeof(Torso), false);
+            //_tnakedOUT = OutputOptions.Add("Торс", typeof(Torso), false);
+            //_glovesOUT = OutputOptions.Add("Перчи", typeof(Torso), false);
             _undersirtOUT = OutputOptions.Add("Майка", typeof(Tops), false);
             _topOUT = OutputOptions.Add("Топ", typeof(Tops), false);
             
@@ -186,16 +190,16 @@ namespace WinNodeEditorDemo.Clothes
                 { "Description", Description },
                 { "Sex", Sex.ToString() },
                 //{ "Icon", _icon.Data as Image },
-                { "WithoutShoes", GetData(_barefootIN) },
+                //{ "WithoutShoes", GetData(_barefootIN) },
                 { "Socks", GetData(_socksIN) },
                 { "Shoes", GetData(_shoesIN) },
-                { "WithoutPants", GetData(_nakedIN) },
+                //{ "WithoutPants", GetData(_nakedIN) },
                 { "Underwear", GetData(_underwearIN) },
                 { "Feet", GetData(_feetIN) },
-                { "Torso", GetData(_tnakedIN) },
+                //{ "Torso", GetData(_tnakedIN) },
                 { "Undershirt",  GetData(_undersirtIN) },
                 { "Top", GetData(_topIN) },
-                { "Gloves",  GetData(_glovesIN) },
+                //{ "Gloves",  GetData(_glovesIN) },
             };
 
             return clothData;
