@@ -12,7 +12,7 @@ namespace HardLife_Options.Nodes.QuestNodes
 	{
 		Red, Green, Yellow
 	}
-	[STNodeAttribute("Quests/Quest", "Квестовый узел")] // попадёт в дерево по этому пути
+	[STNode("Instance/Quests/", "Квестовый узел")]
 	public class QuestNode : STNode
 	{
 		// Специальный тип для «потоковых» соединений

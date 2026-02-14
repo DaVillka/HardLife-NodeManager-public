@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ST.Library.UI.NodeEditor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,10 @@ namespace HardLife_Options
 	{
 		public MainForm()
 		{
-			
+
 			InitializeComponent();
 			this.KeyPreview = true;
-			
+
 		}
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -28,6 +29,36 @@ namespace HardLife_Options
 		private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
 		{
 
+		}
+		
+		private void gridForm1_Load(object sender, EventArgs e)
+		{
+			
+		}
+		private void Save(string path)
+		{
+			gridForm1.stNodeEditor.SaveCanvas(path);
+			gridForm1.stNodeEditor.ShowAlert("Saved", Color.White, Color.Green);
+
+		}
+		// TODO: Implement this method to save grid data
+		// This method is called by GridsForm.SaveGridsToFile()
+		public object SaveGridData(string path, string name)
+		 {
+			// Serialize the current grid state (nodes, connections, positions, etc.)
+			// Return a serializable object containing the grid data
+			string savePath = $"{path}\\{name}.stn";
+			Save(savePath);
+
+			 return new { savePath };
+		 }
+
+		// TODO: Implement this method to load grid data
+		// This method is called by GridsForm.LoadGridsFromFile()
+		public void LoadGridData(object gridData)
+		{
+		    string savePath = ((dynamic)gridData).savePath;
+			gridForm1.stNodeEditor.LoadCanvas(savePath);
 		}
 	}
 }

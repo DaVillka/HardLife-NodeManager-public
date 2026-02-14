@@ -3,14 +3,8 @@ using HardLife_Options.Nodes.QuestNodes;
 using ST.Library.UI.NodeEditor;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using HardLife_Options.Nodes.QuestNodes;
 
 namespace HardLife_Options
 {
@@ -39,10 +33,11 @@ namespace HardLife_Options
 			{typeof(ObjectiveState), Color.Orange },
 			{typeof(RewardBase)   , Color.Gold }
 		};
-
+		private NodeCopyData _copyData = null;
 		public GridForm()
 		{
 			InitializeComponent();
+			stNodeEditor.LoadAssembly(Application.ExecutablePath);
 			stNodePropertyGrid.Text = "Node Property";
 
 			stNodeEditor.ActiveChanged += ActiveChanged;
@@ -61,6 +56,14 @@ namespace HardLife_Options
 			contextMenuStrip.Items[0].Click += (sender, e) => stNodeEditor.Nodes.Remove(stNodeEditor.ActiveNode); 
 			contextMenuStrip.Items[1].Click += (sender, e) => stNodeEditor.ActiveNode.LockLocation = !stNodeEditor.ActiveNode.LockLocation;
 			contextMenuStrip.Items[2].Click += (sender, e) => stNodeEditor.ActiveNode.LockOption = !stNodeEditor.ActiveNode.LockOption;
+			contextMenuStrip.Items[3].Click += (sender, e) => {
+				/* stNodeEditor.ActiveNode;*/ 
+				_copyData = new NodeCopyData() { GUID = stNodeEditor.ActiveNode.Guid.ToString(), NodeType = stNodeEditor.ActiveNode.GetType() };
+			}; 
+			contextMenuStrip.Items[4].Click += (sender, e) => {
+				/* stNodeEditor.ActiveNode;*/
+
+			};
 
 		}
 		public void DeleteSelectedNodes()
@@ -80,7 +83,6 @@ namespace HardLife_Options
 		{
 			if (s is STNodeEditor stNodeEditor)
 				stNodeEditor.ShowAlert(stNodeEditor.CanvasScale.ToString(""), Color.White, Color.FromArgb(125, Color.Yellow));
-			
 		}
 
 		private void OptionConnected(object s, STNodeEditorOptionEventArgs ea)
@@ -98,5 +100,10 @@ namespace HardLife_Options
 			if (s is STNodeEditor stNodeEditor)
 				stNodePropertyGrid.SetNode(stNodeEditor.ActiveNode);			
 		}
+	}
+	internal class NodeCopyData
+	{
+		public string GUID { get; set; }
+		public Type NodeType { get; set; }
 	}
 }

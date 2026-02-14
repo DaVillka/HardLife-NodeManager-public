@@ -18,12 +18,14 @@ namespace HardLife_Options
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			NodesForm nodesForm = new NodesForm();
-			MainForm mainForm = new MainForm();
+			//MainForm mainForm = new MainForm();
+			GridsForm gridsForm = new GridsForm();
 
-			mainForm.FormClosed += (s, e) => nodesForm.Close();
+			//mainForm.FormClosed += (s, e) => { nodesForm.Close(); gridsForm.Close(); };
 			nodesForm.Show();
+			gridsForm.Show();
 
-			Application.Run(mainForm);
+			Application.Run(gridsForm);
 
 			var scripts = Reflection.CreateInstances<Script>(Reflection.GetTypesImplementingClass(typeof(Script)));
 			foreach (var item in scripts) item.Awake(null);

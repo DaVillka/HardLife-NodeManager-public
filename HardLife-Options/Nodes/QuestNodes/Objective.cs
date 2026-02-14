@@ -22,7 +22,7 @@ namespace HardLife_Options.Nodes.QuestNodes
 	}
 
 	// ================= ObjectiveNode =================
-	[STNode("Quests/Objective")]
+	[STNode("Instance/Quests/Objective")]
 	public class ObjectiveNode : STNode
 	{
 		// Свойства для PropertyGrid

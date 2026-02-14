@@ -507,7 +507,7 @@ namespace ST.Library.UI.NodeEditor
         /// <summary>
         /// 获取全局唯一标识
         /// </summary>
-        public Guid Guid => _Guid;
+        public Guid Guid { get => _Guid; set => _Guid = value; }
 
         /// <summary>
         /// 获取或设置是否允许外部访问STNodeOption

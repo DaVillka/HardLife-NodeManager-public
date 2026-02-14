@@ -1,0 +1,25 @@
+{
+  "grids": [
+    {
+      "name": "Outfit Unisex",
+      "isVisible": false,
+      "data": {
+        "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Outfit Unisex.stn"
+      }
+    },
+    {
+      "name": "Outfit Male",
+      "isVisible": false,
+      "data": {
+        "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Outfit Male.stn"
+      }
+    },
+    {
+      "name": "Outfit Female",
+      "isVisible": true,
+      "data": {
+        "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Outfit Female.stn"
+      }
+    }
+  ]
+}

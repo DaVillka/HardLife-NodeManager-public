@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace HardLife_Options.Nodes.QuestNodes
 {
-	[STNode("Quests/CanStart", "Условия для взятия квеста")]
+	[STNode("Instance/Quests/CanStart", "Условия для взятия квеста")]
 	public class CanStartQuestNode : STNode
 	{
 		[STNodeProperty("", "Сколько монет выдать")]

@@ -28,6 +28,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NodeLibrary">
       <HintPath>..\build\NodeLibrary.dll</HintPath>
     </Reference>
@@ -66,12 +70,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Enums.cs" />
+    <Compile Include="Enums\Sex.cs" />
+    <Compile Include="Extensions\STNodeEx.cs" />
     <Compile Include="Extensions\ToolStripRendererEx.cs" />
     <Compile Include="GridForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GridForm.Designer.cs">
       <DependentUpon>GridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridsForm.Designer.cs">
+      <DependentUpon>GridsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -85,6 +98,20 @@
     <Compile Include="NodesForm.Designer.cs">
       <DependentUpon>NodesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nodes\Clothes\ClothComponentNode.cs" />
+    <Compile Include="Nodes\Clothes\ClothesNode.cs" />
+    <Compile Include="Nodes\Clothes\Components\Accessories.cs" />
+    <Compile Include="Nodes\Clothes\Components\Armor.cs" />
+    <Compile Include="Nodes\Clothes\Components\Bags.cs" />
+    <Compile Include="Nodes\Clothes\Components\Decals.cs" />
+    <Compile Include="Nodes\Clothes\Components\Hair.cs" />
+    <Compile Include="Nodes\Clothes\Components\Legs.cs" />
+    <Compile Include="Nodes\Clothes\Components\Mask.cs" />
+    <Compile Include="Nodes\Clothes\Components\Shoes.cs" />
+    <Compile Include="Nodes\Clothes\Components\Tops.cs" />
+    <Compile Include="Nodes\Clothes\Components\Torso.cs" />
+    <Compile Include="Nodes\Clothes\Components\Undershirt.cs" />
+    <Compile Include="Nodes\LinkNode.cs" />
     <Compile Include="Nodes\QuestNodes\Objective.cs" />
     <Compile Include="Nodes\QuestNodes\CanStartQuestNode.cs" />
     <Compile Include="Nodes\QuestNodes\QuestNode.cs" />
@@ -96,6 +123,9 @@
     <Compile Include="Utils\ReflectionManager.cs" />
     <EmbeddedResource Include="GridForm.resx">
       <DependentUpon>GridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridsForm.resx">
+      <DependentUpon>GridsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -113,6 +143,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

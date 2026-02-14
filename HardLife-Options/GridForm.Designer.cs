@@ -35,6 +35,8 @@
 			this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.lockLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.lockConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -52,7 +54,7 @@
 			this.stNodeEditor.MarkForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.stNodeEditor.MinimumSize = new System.Drawing.Size(100, 100);
 			this.stNodeEditor.Name = "stNodeEditor";
-			this.stNodeEditor.Size = new System.Drawing.Size(1072, 550);
+			this.stNodeEditor.Size = new System.Drawing.Size(1016, 550);
 			this.stNodeEditor.TabIndex = 6;
 			this.stNodeEditor.Text = "stNodeEditor1";
 			// 
@@ -80,9 +82,11 @@
 			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeToolStripMenuItem,
             this.lockLocationToolStripMenuItem,
-            this.lockConnectionToolStripMenuItem});
+            this.lockConnectionToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip1";
-			this.contextMenuStrip.Size = new System.Drawing.Size(178, 70);
+			this.contextMenuStrip.Size = new System.Drawing.Size(178, 114);
 			// 
 			// removeToolStripMenuItem
 			// 
@@ -102,6 +106,18 @@
 			this.lockConnectionToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
 			this.lockConnectionToolStripMenuItem.Text = "U/Lock &Connection";
 			// 
+			// copyToolStripMenuItem
+			// 
+			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+			this.copyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.copyToolStripMenuItem.Text = "Copy";
+			// 
+			// pasteToolStripMenuItem
+			// 
+			this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+			this.pasteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.pasteToolStripMenuItem.Text = "Paste";
+			// 
 			// GridForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,19 +125,20 @@
 			this.Controls.Add(this.stNodeEditor);
 			this.Controls.Add(this.stNodePropertyGrid);
 			this.Name = "GridForm";
-			this.Size = new System.Drawing.Size(1272, 550);
+			this.Size = new System.Drawing.Size(1216, 550);
 			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private ST.Library.UI.NodeEditor.STNodeEditor stNodeEditor;
 		private ST.Library.UI.NodeEditor.STNodePropertyGrid stNodePropertyGrid;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem lockLocationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem lockConnectionToolStripMenuItem;
+		public ST.Library.UI.NodeEditor.STNodeEditor stNodeEditor;
+		private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
 	}
 }

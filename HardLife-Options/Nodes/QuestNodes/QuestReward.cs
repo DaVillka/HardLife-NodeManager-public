@@ -78,7 +78,7 @@ namespace HardLife_Options.Nodes.QuestNodes
 
 	// ====== КОНКРЕТНЫЕ НОДЫ ======
 
-	[STNodeAttribute("Quests/Reward", "Выдать деньги")]
+	[STNode("Instance/Quests/Reward", "Выдать деньги")]
 	public class RewardMoneyNode : RewardNodeBase
 	{
 		[STNodeProperty("Сумма", "Сколько денег выдать")]
@@ -94,7 +94,7 @@ namespace HardLife_Options.Nodes.QuestNodes
 			new MoneyReward(Math.Max(0, Amount), string.Empty);
 	}
 
-	[STNodeAttribute("Quests/Reward", "Выдать машину")]
+	[STNode("Instance/Quests/Reward", "Выдать машину")]
 	public class RewardCarNode : RewardNodeBase
 	{
 		[STNodeProperty("Модель", "ID/название модели")]
@@ -113,7 +113,7 @@ namespace HardLife_Options.Nodes.QuestNodes
 			new CarReward(Model ?? string.Empty, ColorName ?? string.Empty);
 	}
 
-	[STNodeAttribute("Quests/Reward", "Выдать предмет")]
+	[STNode("Instance/Quests/Reward", "Выдать предмет")]
 	public class RewardItemNode : RewardNodeBase
 	{
 		[STNodeProperty("Предмет ID", "Идентификатор предмета")]
@@ -132,7 +132,7 @@ namespace HardLife_Options.Nodes.QuestNodes
 			new ItemReward(ItemId ?? string.Empty, Math.Max(1, Count));
 	}
 
-	[STNodeAttribute("Quests/Reward", "Выдать донат-покупку")]
+	[STNode("Instance/Quests/Reward", "Выдать донат-покупку")]
 	public class RewardDonationNode : RewardNodeBase
 	{
 		[STNodeProperty("Сумма", "Сумма донат-награды")]
