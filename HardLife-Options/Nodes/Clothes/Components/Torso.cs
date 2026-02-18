@@ -32,13 +32,8 @@ namespace HardLife_Options.Nodes.Clothes.Components
 	[STNode("/Instance/Clothes/Components", "Torso")]
     internal class Torso : STNode
     {
-		[STNodeProperty("Id", "Drawable Id")]
-		public int Id { get; set; } = -1;
-		[STNodeProperty("Textures", "Texture Count")]
-		public int Textures { get; set; } = -1;
 		[STNodeProperty("Variant", "Variant count")]
 		public TorsoVariant Variant { get; set; } = TorsoVariant.TORSO_8;
-
 		private STNodeOption _out = null;
 
 		protected override void OnCreate()
@@ -54,17 +49,7 @@ namespace HardLife_Options.Nodes.Clothes.Components
 		}
 		protected override void OnDrawTitle(DrawingTools dt)
 		{
-			Title = $"{GetType().Name}: {Id}";
 			base.OnDrawTitle(dt);
-		}
-		public override object GetBuildObject()
-		{
-			return new Dictionary<string, object>()
-			{
-				{ "Id", Id },
-				{ "Textures", Textures },
-				{ "Variant", Variant },
-			};
 		}
 	}
 }

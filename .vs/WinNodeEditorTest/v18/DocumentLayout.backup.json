@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Projects\\HardLife-NodeManager-public\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\tops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\tops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\hair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\hair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\mask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,13 +34,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Torso.cs",
               "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
               "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs*",
+              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-18T09:16:13.864Z",
               "EditorCaption": ""
@@ -60,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Hair.cs",
               "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Hair.cs",
               "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Hair.cs",
@@ -73,13 +73,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Tops.cs",
               "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
               "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
               "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
               "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-18T08:55:09.314Z",
               "EditorCaption": ""

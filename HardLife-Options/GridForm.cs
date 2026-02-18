@@ -4,6 +4,8 @@ using ST.Library.UI.NodeEditor;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 namespace HardLife_Options
@@ -69,6 +71,157 @@ namespace HardLife_Options
 		public void DeleteSelectedNodes()
 		{
 			stNodeEditor.RemoveSelectedNode(stNodeEditor.ActiveNode);
+		}
+
+		public void DuplicateSelectedNodes()
+		{
+			var selected = stNodeEditor.GetSelectedNode();
+			if (selected == null || selected.Length == 0)
+			{
+				if (stNodeEditor.ActiveNode == null)
+				{
+					stNodeEditor.ShowAlert("No node selected", Color.White, Color.FromArgb(125, Color.Orange));
+					return;
+				}
+
+				selected = new[] { stNodeEditor.ActiveNode };
+			}
+
+			const int offsetX = 24;
+			const int offsetY = 24;
+
+			foreach (var node in selected)
+				node.SetSelected(false, false);
+
+			STNode lastCreated = null;
+			foreach (var node in selected)
+				lastCreated = DuplicateSingleNode(node, offsetX, offsetY);
+
+			if (lastCreated != null)
+				stNodeEditor.SetActiveNode(lastCreated);
+		}
+
+		private STNode DuplicateSingleNode(STNode source, int offsetX, int offsetY)
+		{
+			if (source == null)
+				return null;
+
+			byte[] saveData;
+			try
+			{
+				saveData = InvokeNonPublic<byte[]>(source, "GetSaveData");
+			}
+			catch
+			{
+				stNodeEditor.ShowAlert("Duplicate failed (save)", Color.White, Color.FromArgb(125, Color.Red));
+				return null;
+			}
+
+			if (!TryParseNodeSaveData(saveData, out var data))
+			{
+				stNodeEditor.ShowAlert("Duplicate failed (parse)", Color.White, Color.FromArgb(125, Color.Red));
+				return null;
+			}
+
+			data["Guid"] = Guid.NewGuid().ToByteArray();
+			if (data.TryGetValue("Left", out var leftBytes) && leftBytes.Length >= 4)
+			{
+				int left = BitConverter.ToInt32(leftBytes, 0);
+				data["Left"] = BitConverter.GetBytes(left + offsetX);
+			}
+
+			if (data.TryGetValue("Top", out var topBytes) && topBytes.Length >= 4)
+			{
+				int top = BitConverter.ToInt32(topBytes, 0);
+				data["Top"] = BitConverter.GetBytes(top + offsetY);
+			}
+
+			STNode clone;
+			try
+			{
+				clone = (STNode)Activator.CreateInstance(source.GetType());
+				InvokeNonPublic<object>(clone, "OnLoadNode", data);
+			}
+			catch
+			{
+				stNodeEditor.ShowAlert("Duplicate failed (load)", Color.White, Color.FromArgb(125, Color.Red));
+				return null;
+			}
+
+			try
+			{
+				_ = stNodeEditor.Nodes.Add(clone);
+				clone.SetSelected(true, false);
+				return clone;
+			}
+			catch
+			{
+				stNodeEditor.ShowAlert("Duplicate failed (add)", Color.White, Color.FromArgb(125, Color.Red));
+				return null;
+			}
+		}
+
+		private static bool TryParseNodeSaveData(byte[] byData, out Dictionary<string, byte[]> dic)
+		{
+			dic = new Dictionary<string, byte[]>(StringComparer.Ordinal);
+			try
+			{
+				int index = 0;
+				if (byData == null || byData.Length < 2)
+					return false;
+
+				int modelLen = byData[index];
+				index += modelLen + 1;
+				if (index >= byData.Length)
+					return false;
+
+				int typeGuidLen = byData[index];
+				index += typeGuidLen + 1;
+
+				while (index < byData.Length)
+				{
+					if (index + 4 > byData.Length) return false;
+					int keyLen = BitConverter.ToInt32(byData, index);
+					index += 4;
+					if (keyLen < 0 || index + keyLen > byData.Length) return false;
+					string key = Encoding.UTF8.GetString(byData, index, keyLen);
+					index += keyLen;
+
+					if (index + 4 > byData.Length) return false;
+					int valLen = BitConverter.ToInt32(byData, index);
+					index += 4;
+					if (valLen < 0 || index + valLen > byData.Length) return false;
+					byte[] value = new byte[valLen];
+					Buffer.BlockCopy(byData, index, value, 0, valLen);
+					index += valLen;
+
+					dic[key] = value;
+				}
+
+				return true;
+			}
+			catch
+			{
+				dic = new Dictionary<string, byte[]>(StringComparer.Ordinal);
+				return false;
+			}
+		}
+
+		private static T InvokeNonPublic<T>(object target, string methodName, params object[] args)
+		{
+			var type = target.GetType();
+			MethodInfo mi = null;
+			for (var t = type; t != null; t = t.BaseType)
+			{
+				mi = t.GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly);
+				if (mi != null)
+					break;
+			}
+
+			if (mi == null)
+				throw new MissingMethodException(type.FullName, methodName);
+
+			return (T)mi.Invoke(target, args);
 		}
 		private void NodeRemoved(object s, STNodeEditorEventArgs ea)
 		{

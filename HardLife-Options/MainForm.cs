@@ -23,6 +23,14 @@ namespace HardLife_Options
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
 		{
+			if (e.Control && e.KeyCode == Keys.D)
+			{
+				gridForm1.DuplicateSelectedNodes();
+				e.Handled = true;
+				e.SuppressKeyPress = true;
+				return;
+			}
+
 			if (e.KeyCode == Keys.Delete) gridForm1.DeleteSelectedNodes();
 		}
 
