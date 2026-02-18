@@ -95,7 +95,7 @@ namespace HardLife_Options
 			_footer = new Panel
 			{
 				Dock = DockStyle.Bottom,
-				Height = 94,
+				Height = 132,
 				BackColor = Ui.HeaderBack,
 				Padding = new Padding(10, 8, 10, 8)
 			};
@@ -103,14 +103,19 @@ namespace HardLife_Options
 			_footerGrid = new TableLayoutPanel
 			{
 				Dock = DockStyle.Fill,
-			ColumnCount = 3,
-			RowCount = 2,
-			BackColor = Color.Transparent
-		};
+				ColumnCount = 3,
+				RowCount = 3,
+				BackColor = Color.Transparent
+			};
 
-		_footerGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
-		_footerGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
-		_footerGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
+			_footerGrid.ColumnStyles.Clear();
+			_footerGrid.RowStyles.Clear();
+
+			for (int i = 0; i < _footerGrid.ColumnCount; i++)
+				_footerGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / _footerGrid.ColumnCount));
+
+			for (int i = 0; i < _footerGrid.RowCount; i++)
+				_footerGrid.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / _footerGrid.RowCount));
 
 			var btnAdd = MakeBtn("Add");
 			var btnRemove = MakeBtn("Remove");
@@ -118,13 +123,37 @@ namespace HardLife_Options
 			var btnSave = MakeBtn("Save");
 			var btnLoad = MakeBtn("Load");
 			var btnClose = MakeBtn("Close");
+			var btnBuild = MakeBtn("Build");
 
-			btnAdd.Anchor = AnchorStyles.Left;
-			btnRemove.Anchor = AnchorStyles.Left;
-			btnRename.Anchor = AnchorStyles.Left;
-			btnSave.Anchor = AnchorStyles.Left;
-			btnLoad.Anchor = AnchorStyles.Left;
-			btnClose.Anchor = AnchorStyles.Left;
+			foreach (var btn in new[] { btnAdd, btnRemove, btnRename, btnSave, btnLoad, btnClose, btnBuild })
+				btn.Dock = DockStyle.Fill;
+
+			const int gapX = 10;
+			const int gapY = 4;
+
+			btnAdd.Margin = new Padding(0, gapY, gapX, gapY);
+			btnRemove.Margin = new Padding(0, gapY, gapX, gapY);
+			btnRename.Margin = new Padding(0, gapY, 0, gapY);
+			btnSave.Margin = new Padding(0, gapY, gapX, gapY);
+			btnLoad.Margin = new Padding(0, gapY, gapX, gapY);
+			btnClose.Margin = new Padding(0, gapY, 0, gapY);
+			btnBuild.Margin = new Padding(0, gapY, 0, gapY);
+
+			static void TintBtn(Button btn, Color back, Color border)
+			{
+				btn.BackColor = back;
+				btn.FlatAppearance.BorderColor = border;
+				btn.FlatAppearance.MouseOverBackColor = ControlPaint.Light(back, 0.08f);
+				btn.FlatAppearance.MouseDownBackColor = ControlPaint.Dark(back, 0.12f);
+			}
+
+			TintBtn(btnAdd, Color.FromArgb(42, 62, 46), Color.FromArgb(95, 150, 110));
+			TintBtn(btnRemove, Color.FromArgb(66, 42, 42), Color.FromArgb(170, 90, 90));
+			TintBtn(btnRename, Color.FromArgb(62, 56, 42), Color.FromArgb(175, 150, 95));
+			TintBtn(btnSave, Color.FromArgb(42, 54, 66), Color.FromArgb(105, 145, 175));
+			TintBtn(btnLoad, Color.FromArgb(56, 42, 66), Color.FromArgb(150, 115, 175));
+			TintBtn(btnClose, Ui.BtnBack, Ui.BtnBorder);
+			TintBtn(btnBuild, Color.FromArgb(35, 58, 70), Ui.Accent);
 
 			_footerGrid.Controls.Add(btnAdd, 0, 0);
 			_footerGrid.Controls.Add(btnRemove, 1, 0);
@@ -132,6 +161,8 @@ namespace HardLife_Options
 			_footerGrid.Controls.Add(btnSave, 0, 1);
 			_footerGrid.Controls.Add(btnLoad, 1, 1);
 			_footerGrid.Controls.Add(btnClose, 2, 1);
+			_footerGrid.Controls.Add(btnBuild, 0, 2);
+			_footerGrid.SetColumnSpan(btnBuild, _footerGrid.ColumnCount);
 
 
 			_header.Controls.Add(_titleLabel);
@@ -153,7 +184,7 @@ namespace HardLife_Options
 				Text = text,
 				Width = 110,
 				Height = 30,
-				Margin = text == "Close" ? new Padding(0) : new Padding(0, 0, 10, 0),
+				Margin = Padding.Empty,
 				FlatStyle = FlatStyle.Flat,
 				UseVisualStyleBackColor = false,
 				ForeColor = Color.White,
@@ -262,6 +293,17 @@ namespace HardLife_Options
 				ToggleGridVisibility(name);
 				gridsListBox.Invalidate();
 				return;
+			}
+
+			if (e.Button == MouseButtons.Left && item.Selected)
+			{
+				var name = (item.Text ?? "").Trim();
+				if (name.Length > 0)
+				{
+					_selectedGridName = name;
+					ShowGrid(name, activate: true);
+					gridsListBox.Invalidate();
+				}
 			}
 
 			// остальной клик пусть работает как обычно (selection)
@@ -455,11 +497,6 @@ namespace HardLife_Options
 		{
 			var name = GetSelectedGridName();
 			_selectedGridName = name;
-
-			if (string.IsNullOrWhiteSpace(name))
-				return;
-
-			ShowGrid(name, activate: true);
 			gridsListBox.Invalidate();
 		}
 
@@ -753,11 +790,15 @@ namespace HardLife_Options
 
 				if (_gridItems.TryGetValue(gridName, out var gridItem))
 				{
+					var form = GetOrCreateForm(gridName, gridItem);
+					bool isVisible = form.Visible;
+					gridItem.IsVisible = isVisible;
+
 					var gridDataItem = new Dictionary<string, object>
 					{
 						{ "name", gridName },
-						{ "isVisible", gridItem.IsVisible },
-						{ "data", gridItem.Form.SaveGridData(directoryPath, gridName) }
+						{ "isVisible", isVisible },
+						{ "data", form.SaveGridData(directoryPath, gridName) }
 					};
 					gridsData.Add(gridDataItem);
 				}
@@ -807,12 +848,14 @@ namespace HardLife_Options
 				_gridItems.Clear();
 
 				// Recreate grids from saved data
+				var gridsToOpen = new List<string>();
 				foreach (var gridObj in gridsArray)
 				{
 					var gridDict = gridObj as Newtonsoft.Json.Linq.JObject;
 					if (gridDict == null) continue;
 
 					string? gridName = gridDict.Value<string>("name");
+					bool wasVisible = gridDict.Value<bool?>("isVisible") ?? false;
 
 					if (string.IsNullOrWhiteSpace(gridName)) continue;
 
@@ -830,7 +873,13 @@ namespace HardLife_Options
 					    var form = GetOrCreateForm(gridName, gridItem);
 					    form.LoadGridData(gridData);
 					}
+
+					if (wasVisible)
+						gridsToOpen.Add(gridName);
 				}
+
+				foreach (var name in gridsToOpen)
+					ShowGrid(name, activate: false);
 
 				gridsListBox.Invalidate();
 				MessageBox.Show("Grids loaded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

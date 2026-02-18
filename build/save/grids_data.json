@@ -16,7 +16,7 @@
     },
     {
       "name": "Outfit Female",
-      "isVisible": true,
+      "isVisible": false,
       "data": {
         "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Outfit Female.stn"
       }

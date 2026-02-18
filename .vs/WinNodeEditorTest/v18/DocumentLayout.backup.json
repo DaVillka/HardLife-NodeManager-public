@@ -3,52 +3,20 @@
   "WorkspaceRootPath": "D:\\Projects\\HardLife-NodeManager-public\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\undershirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\undershirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\tops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\tops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\shoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\shoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\mask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\mask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\legs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\legs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\hair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\hair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\decals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\decals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\torso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\bags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\bags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\armor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\armor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\accessories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\accessories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\clothesnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\clothesnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|d:\\projects\\hardlife-nodemanager-public\\hardlife-options\\nodes\\clothes\\components\\mask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E01F3319-8AF6-4620-A054-BD9D6ACABD3A}|HardLife-Options\\HardLife-Options.csproj|solutionrelative:hardlife-options\\nodes\\clothes\\components\\mask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,158 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Undershirt.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Undershirt.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Undershirt.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Undershirt.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Undershirt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:40.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Torso.cs",
               "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
               "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
               "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
               "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Torso.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:24.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Tops.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:19.84Z",
+              "WhenOpened": "2026-02-18T09:16:13.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Shoes.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Shoes.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Shoes.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Shoes.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Shoes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:14.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Mask.cs",
               "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Mask.cs",
               "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Mask.cs",
               "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Mask.cs",
               "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Mask.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:10.299Z",
+              "WhenOpened": "2026-02-18T09:09:53.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Legs.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Legs.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Legs.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Legs.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Legs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:04.463Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Hair.cs",
               "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Hair.cs",
               "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Hair.cs",
               "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Hair.cs",
               "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Hair.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:57:00.222Z",
+              "WhenOpened": "2026-02-18T08:57:09.355Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Decals.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Decals.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Decals.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Decals.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Decals.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Tops.cs",
+              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
+              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
+              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
+              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Tops.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:56:52.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Armor.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Armor.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Armor.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Armor.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Armor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:56:41.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Accessories.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Accessories.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Accessories.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Accessories.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Accessories.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:56:33.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ClothesNode.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\ClothesNode.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\ClothesNode.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\ClothesNode.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\ClothesNode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:56:26.055Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Bags.cs",
-              "DocumentMoniker": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Bags.cs",
-              "RelativeDocumentMoniker": "HardLife-Options\\Nodes\\Clothes\\Components\\Bags.cs",
-              "ToolTip": "D:\\Projects\\HardLife-NodeManager-public\\HardLife-Options\\Nodes\\Clothes\\Components\\Bags.cs",
-              "RelativeToolTip": "HardLife-Options\\Nodes\\Clothes\\Components\\Bags.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T19:52:34.764Z",
+              "WhenOpened": "2026-02-18T08:55:09.314Z",
               "EditorCaption": ""
             }
           ]

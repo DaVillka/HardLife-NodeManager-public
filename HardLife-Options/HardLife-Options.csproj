@@ -86,12 +86,25 @@
     <Compile Include="GridsForm.Designer.cs">
       <DependentUpon>GridsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IArrayNode.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NodeControls\Enumerator.cs" />
+    <Compile Include="NodeControls\FrmEnumSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NodeControls\STNodeButton.cs" />
+    <Compile Include="NodeControls\STNodeCheckBox.cs" />
+    <Compile Include="NodeControls\STNodeColorButton.cs" />
+    <Compile Include="NodeControls\STNodeDoubleLabel.cs" />
+    <Compile Include="NodeControls\STNodeInputDialog.cs" />
+    <Compile Include="NodeControls\STNodeLabel.cs" />
+    <Compile Include="NodeControls\STNodeProgress.cs" />
+    <Compile Include="NodeControls\STNodeSelectEnumBox.cs" />
     <Compile Include="NodesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +129,11 @@
     <Compile Include="Nodes\QuestNodes\CanStartQuestNode.cs" />
     <Compile Include="Nodes\QuestNodes\QuestNode.cs" />
     <Compile Include="Nodes\QuestNodes\QuestReward.cs" />
+    <Compile Include="Nodes\Types\ArrayNode.cs" />
+    <Compile Include="Nodes\Types\ArrayToValueNode.cs" />
+    <Compile Include="Nodes\Types\NumberNode.cs" />
+    <Compile Include="Nodes\Types\ScriptNode.cs" />
+    <Compile Include="Nodes\Types\StringNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Script.cs" />
@@ -175,8 +193,6 @@
       <Name>ST.Library.UI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
