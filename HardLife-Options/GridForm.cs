@@ -70,7 +70,17 @@ namespace HardLife_Options
 		}
 		public void DeleteSelectedNodes()
 		{
-			stNodeEditor.RemoveSelectedNode(stNodeEditor.ActiveNode);
+			var selected = stNodeEditor.GetSelectedNode();
+			if (selected != null && selected.Length > 0)
+			{
+				foreach (var node in selected)
+					stNodeEditor.Nodes.Remove(node);
+
+				return;
+			}
+
+			if (stNodeEditor.ActiveNode != null)
+				stNodeEditor.Nodes.Remove(stNodeEditor.ActiveNode);
 		}
 
 		public void DuplicateSelectedNodes()

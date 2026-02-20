@@ -24,7 +24,6 @@ namespace HardLife_Options.Nodes.Clothes
 
 		protected override void OnCreate()
 		{
-			
 			Title = "Одежда";
 			TitleColor = Color.MediumPurple;
 			BackColor = Color.FromArgb(200, 54, 54, 60);

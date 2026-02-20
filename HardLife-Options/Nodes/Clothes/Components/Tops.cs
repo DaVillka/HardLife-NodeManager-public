@@ -1,4 +1,5 @@
-﻿using ST.Library.UI.NodeEditor;
+﻿using HardLife_Options.Enums;
+using ST.Library.UI.NodeEditor;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace HardLife_Options.Nodes.Clothes.Components
 		public int Id { get; set; } = -1;
 		[STNodeProperty("Textures", "Texture Count")]
 		public int Textures { get; set; } = -1;
+		[STNodeProperty("Torso", "Torso Variant")]
+		public TorsoVariant Variant { get; set; } = TorsoVariant.TORSO_8;
 
+		private STNodeOption _inUndershirts = null;
 		private STNodeOption _out = null;
 
 		protected override void OnCreate()
@@ -20,9 +24,10 @@ namespace HardLife_Options.Nodes.Clothes.Components
 			base.OnCreate();
 			Title = GetType().Name;
 			AutoSize = false;
-			Width = 120;
+			Width = 140;
 			Height = 40;
 
+			_inUndershirts = InputOptions.Add("Огрызки", typeof(Undershirt), false);
 			_out = OutputOptions.Add("Выход", GetType(), false);
 			_out.TransferData(this);
 		}

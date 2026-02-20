@@ -305,8 +305,6 @@ namespace HardLife_Options
 					gridsListBox.Invalidate();
 				}
 			}
-
-			// остальной клик пусть работает как обычно (selection)
 		}
 
 		private void GridsListView_DrawColumnHeader(object? sender, DrawListViewColumnHeaderEventArgs e)
@@ -839,15 +837,12 @@ namespace HardLife_Options
 				if (saveData == null || !saveData.TryGetValue("grids", out var gridsObj))
 					return;
 
-				var gridsArray = gridsObj as Newtonsoft.Json.Linq.JArray;
-				if (gridsArray == null) return;
+                if (gridsObj is not Newtonsoft.Json.Linq.JArray gridsArray) return;
 
-				// Clear existing grids
-				gridsListBox.Items.Clear();
+                gridsListBox.Items.Clear();
 				CloseAllGridForms();
 				_gridItems.Clear();
 
-				// Recreate grids from saved data
 				var gridsToOpen = new List<string>();
 				foreach (var gridObj in gridsArray)
 				{
@@ -859,15 +854,12 @@ namespace HardLife_Options
 
 					if (string.IsNullOrWhiteSpace(gridName)) continue;
 
-					// Add grid to list
 					var item = new ListViewItem(gridName);
 					gridsListBox.Items.Add(item);
 
-					// Create grid item
 					var gridItem = new GridItem(null, false);
 					_gridItems[gridName] = gridItem;
 
-					// TODO: Uncomment and implement when MainForm.LoadGridData() is available:
 					if (gridDict.TryGetValue("data", out var gridData))
 					{
 					    var form = GetOrCreateForm(gridName, gridItem);

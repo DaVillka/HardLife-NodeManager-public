@@ -16,9 +16,16 @@
     },
     {
       "name": "Outfit Female",
-      "isVisible": false,
+      "isVisible": true,
       "data": {
         "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Outfit Female.stn"
+      }
+    },
+    {
+      "name": "Unisex Gloves",
+      "isVisible": false,
+      "data": {
+        "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Unisex Gloves.stn"
       }
     }
   ]

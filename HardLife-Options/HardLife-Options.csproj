@@ -123,6 +123,7 @@
     <Compile Include="Nodes\Clothes\Components\Shoes.cs" />
     <Compile Include="Nodes\Clothes\Components\Tops.cs" />
     <Compile Include="Nodes\Clothes\Components\Torso.cs" />
+    <Compile Include="Enums\TorsoVariant.cs" />
     <Compile Include="Nodes\Clothes\Components\Undershirt.cs" />
     <Compile Include="Nodes\LinkNode.cs" />
     <Compile Include="Nodes\QuestNodes\Objective.cs" />
