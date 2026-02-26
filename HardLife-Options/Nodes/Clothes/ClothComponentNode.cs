@@ -1,4 +1,4 @@
-﻿using HardLife_Options.Enums;
+﻿using HardLife_Options.Core;
 using ST.Library.UI.NodeEditor;
 using System;
 using System.Collections.Generic;

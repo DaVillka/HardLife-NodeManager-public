@@ -1,4 +1,4 @@
-﻿using HardLife_Options.Enums;
+﻿using HardLife_Options.Core;
 using ST.Library.UI.NodeEditor;
 
 namespace HardLife_Options.Nodes.Clothes.Components

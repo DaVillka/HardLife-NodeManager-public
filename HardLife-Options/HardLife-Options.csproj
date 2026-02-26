@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Enums.cs" />
-    <Compile Include="Enums\Sex.cs" />
     <Compile Include="Extensions\STNodeEx.cs" />
     <Compile Include="Extensions\ToolStripRendererEx.cs" />
     <Compile Include="GridForm.cs">
@@ -112,6 +111,7 @@
       <DependentUpon>NodesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Nodes\Clothes\ClothComponentNode.cs" />
+    <Compile Include="Nodes\Clothes\HairNode.cs" />
     <Compile Include="Nodes\Clothes\ClothesNode.cs" />
     <Compile Include="Nodes\Clothes\Components\Accessories.cs" />
     <Compile Include="Nodes\Clothes\Components\Armor.cs" />
@@ -123,7 +123,6 @@
     <Compile Include="Nodes\Clothes\Components\Shoes.cs" />
     <Compile Include="Nodes\Clothes\Components\Tops.cs" />
     <Compile Include="Nodes\Clothes\Components\Torso.cs" />
-    <Compile Include="Enums\TorsoVariant.cs" />
     <Compile Include="Nodes\Clothes\Components\Undershirt.cs" />
     <Compile Include="Nodes\LinkNode.cs" />
     <Compile Include="Nodes\QuestNodes\Objective.cs" />

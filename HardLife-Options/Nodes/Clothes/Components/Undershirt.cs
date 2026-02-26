@@ -1,4 +1,4 @@
-﻿using HardLife_Options.Enums;
+﻿using HardLife_Options.Core;
 using ST.Library.UI.NodeEditor;
 using System.Collections.Generic;
 
@@ -30,13 +30,5 @@ namespace HardLife_Options.Nodes.Clothes.Components
 			Title = $"{GetType().Name}: {Id}";
 			base.OnDrawTitle(dt);
 		}
-		public override object GetBuildObject()
-        {
-            return new Dictionary<string, object>()
-            {
-                { "Id", Id },
-                { "Torso", Variant },
-            };
-        }
     }
 }
