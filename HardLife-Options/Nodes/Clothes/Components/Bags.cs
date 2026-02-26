@@ -1,4 +1,5 @@
 ﻿using ST.Library.UI.NodeEditor;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace HardLife_Options.Nodes.Clothes.Components
@@ -8,7 +9,11 @@ namespace HardLife_Options.Nodes.Clothes.Components
 	[STNode("/Instance/Clothes/Components", "Bags")]
 	internal class Bags : STNode
 	{
-		private STNodeOption idPair = null;
+		[STNodeProperty("Id", "Drawable Id")]
+		public int Id { get; set; } = -1;
+		[STNodeProperty("Textures", "Texture Count")]
+		public int Textures { get; set; } = -1;
+
 		private STNodeOption _out = null;
 
 		protected override void OnCreate()
@@ -17,10 +22,23 @@ namespace HardLife_Options.Nodes.Clothes.Components
 			Title = GetType().Name;
 			AutoSize = false;
 			Width = 120;
-			Height = 60;
+			Height = 40;
 
-			idPair = InputOptions.Add("Id", typeof(IClothIdPair), true);
 			_out = OutputOptions.Add("Выход", GetType(), false);
+			_out.TransferData(this);
+		}
+		protected override void OnDrawTitle(DrawingTools dt)
+		{
+			Title = $"{GetType().Name}: {Id}";
+			base.OnDrawTitle(dt);
+		}
+		public override object GetBuildObject()
+		{
+			return new Dictionary<string, object>()
+			{
+				{ "Id", Id },
+				{ "Textures", Textures },
+			};
 		}
 	}
 }
