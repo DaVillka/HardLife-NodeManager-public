@@ -37,7 +37,7 @@ namespace HardLife_Options.Nodes.Clothes
 			_inName = InputOptions.Add("Название", typeof(string), true);
 
 			_inComponentHair = InputOptions.Add("Компонент", typeof(Hair), true);
-			_outComponentHair = OutputOptions.Add("Причнска", typeof(HairNode), false);
+			_outComponentHair = OutputOptions.Add("Прическа", typeof(HairNode), false);
 
 			base.OnCreate();
 		}
