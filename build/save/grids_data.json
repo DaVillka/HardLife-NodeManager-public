@@ -6,6 +6,13 @@
       "data": {
         "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Hairs.stn"
       }
+    },
+    {
+      "name": "Grid 2",
+      "isVisible": true,
+      "data": {
+        "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Grid 2.stn"
+      }
     }
   ]
 }

@@ -809,7 +809,45 @@ namespace HardLife_Options
 				
 
 				string json = JsonConvert.SerializeObject(saveData, Formatting.Indented);
-				File.WriteAllText(filePath, json);
+
+				string tempFilePath = Path.Combine(directoryPath, $".{Path.GetFileName(filePath)}.{Guid.NewGuid():N}.tmp");
+				try
+				{
+					File.WriteAllText(tempFilePath, json);
+
+					if (File.Exists(filePath))
+					{
+						string dumpDir = Path.Combine(directoryPath, "dump");
+						Directory.CreateDirectory(dumpDir);
+
+						string name = Path.GetFileNameWithoutExtension(filePath);
+						string ext = Path.GetExtension(filePath);
+						string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss_fff");
+
+						string backupPath = Path.Combine(dumpDir, $"{name}_{timestamp}{ext}");
+						int idx = 1;
+						while (File.Exists(backupPath))
+						{
+							backupPath = Path.Combine(dumpDir, $"{name}_{timestamp}_{idx}{ext}");
+							idx++;
+						}
+
+						File.Replace(tempFilePath, filePath, backupPath, true);
+					}
+					else
+					{
+						File.Move(tempFilePath, filePath);
+					}
+				}
+				finally
+				{
+					try
+					{
+						if (File.Exists(tempFilePath))
+							File.Delete(tempFilePath);
+					}
+					catch { }
+				}
 
 				MessageBox.Show("Grids saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}

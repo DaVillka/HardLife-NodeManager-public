@@ -2360,16 +2360,87 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="strFileName">文件路径</param>
         public void SaveCanvas(string strFileName)
         {
-            using (FileStream fs = new FileStream(strFileName, FileMode.Create, FileAccess.Write))
-            {
-                SaveCanvas(fs);
-            }
+            SaveCanvasToFile(strFileName, false);
         }
         public void SaveSelectedCanvas(string strFileName)
         {
-            using (FileStream fs = new FileStream(strFileName, FileMode.Create, FileAccess.Write))
+            SaveCanvasToFile(strFileName, true);
+        }
+
+        private static string CreateDumpBackupPath(string destinationFilePath)
+        {
+            string strDir = Path.GetDirectoryName(destinationFilePath);
+            if (string.IsNullOrEmpty(strDir))
             {
-                SaveCanvas(fs);
+                strDir = Environment.CurrentDirectory;
+            }
+
+            string strDumpDir = Path.Combine(strDir, "dump");
+            Directory.CreateDirectory(strDumpDir);
+
+            string strName = Path.GetFileNameWithoutExtension(destinationFilePath);
+            string strExt = Path.GetExtension(destinationFilePath);
+            string strTimestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss_fff");
+
+            string strBackupFile = Path.Combine(strDumpDir, strName + "_" + strTimestamp + strExt);
+            int nIndex = 1;
+            while (File.Exists(strBackupFile))
+            {
+                strBackupFile = Path.Combine(strDumpDir, strName + "_" + strTimestamp + "_" + nIndex + strExt);
+                nIndex++;
+            }
+
+            return strBackupFile;
+        }
+
+        private static string CreateTempFilePath(string destinationFilePath)
+        {
+            string strDir = Path.GetDirectoryName(destinationFilePath);
+            if (string.IsNullOrEmpty(strDir))
+            {
+                strDir = Environment.CurrentDirectory;
+            }
+
+            string strFile = Path.GetFileName(destinationFilePath);
+            return Path.Combine(strDir, "." + strFile + "." + Guid.NewGuid().ToString("N") + ".tmp");
+        }
+
+        private void SaveCanvasToFile(string strFileName, bool isSaveSelected)
+        {
+            string strDir = Path.GetDirectoryName(strFileName);
+            if (!string.IsNullOrEmpty(strDir))
+            {
+                Directory.CreateDirectory(strDir);
+            }
+
+            string strTemp = CreateTempFilePath(strFileName);
+            try
+            {
+                using (FileStream fs = new FileStream(strTemp, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    SaveCanvas(fs, isSaveSelected);
+                }
+
+                if (File.Exists(strFileName))
+                {
+                    string strBackup = CreateDumpBackupPath(strFileName);
+                    File.Replace(strTemp, strFileName, strBackup, true);
+                }
+                else
+                {
+                    File.Move(strTemp, strFileName);
+                }
+            }
+            finally
+            {
+                try
+                {
+                    if (File.Exists(strTemp))
+                    {
+                        File.Delete(strTemp);
+                    }
+                }
+                catch { }
             }
         }
         /// <summary>

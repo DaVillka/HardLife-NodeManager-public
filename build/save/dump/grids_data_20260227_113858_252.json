@@ -1,0 +1,11 @@
+{
+  "grids": [
+    {
+      "name": "Hairs",
+      "isVisible": true,
+      "data": {
+        "savePath": "D:\\Projects\\HardLife-NodeManager-public\\build\\save\\Hairs.stn"
+      }
+    }
+  ]
+}
